@@ -1,7 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { DollarSign, TrendingUp, GraduationCap, Home, Users, Target } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const BenefitsSection = () => {
+  const { ref: benefitsRef, isVisible: benefitsVisible } = useScrollReveal();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal();
   const benefits = [
     {
       icon: DollarSign,
@@ -55,16 +58,18 @@ const BenefitsSection = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={benefitsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
               <Card
                 key={index}
-                className="p-8 hover-lift bg-card border-border/50 animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`p-8 hover-lift hover-glow bg-card border-border/50 ${
+                  benefitsVisible ? 'animate-flip-in' : 'opacity-0'
+                }`}
+                style={{ animationDelay: `${index * 0.12}s` }}
               >
-                <div className={`w-16 h-16 rounded-2xl bg-${benefit.color}/10 flex items-center justify-center mb-6`}>
+                <div className={`w-16 h-16 rounded-2xl bg-${benefit.color}/10 flex items-center justify-center mb-6 hover-bounce animate-pulse-glow`}>
                   <Icon className={`w-8 h-8 text-${benefit.color}`} />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
@@ -75,17 +80,20 @@ const BenefitsSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 text-center animate-fade-up animate-delay-600">
-          <div className="inline-block p-12 rounded-3xl bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 border border-border">
-            <h3 className="text-3xl font-bold mb-4">
+        <div 
+          ref={ctaRef}
+          className={`mt-20 text-center ${ctaVisible ? 'animate-zoom-in' : 'opacity-0'}`}
+        >
+          <div className="inline-block p-12 rounded-3xl bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 border border-border hover-lift hover-glow">
+            <h3 className="text-3xl font-bold mb-4 animate-fade-up">
               ¿Listo para transformar tu carrera?
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl">
+            <p className="text-muted-foreground mb-6 max-w-2xl animate-fade-up animate-delay-100">
               Únete a cientos de estudiantes que ya están construyendo su futuro en tecnología con Ingenio 360
             </p>
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-glow transition-all text-lg"
+              className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-glow transition-all text-lg hover-lift animate-pulse-glow animate-delay-200"
             >
               Comienza Tu Viaje Ahora
             </button>

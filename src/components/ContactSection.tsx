@@ -5,9 +5,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const { ref: contactRef, isVisible: contactVisible } = useScrollReveal();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,9 +50,9 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div ref={contactRef} className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
-          <div className="space-y-8 animate-slide-in-left">
+          <div className={`space-y-8 ${contactVisible ? 'animate-fade-up' : 'opacity-0'}`}>
             <div>
               <h3 className="text-2xl font-bold mb-4">Ingenio 360</h3>
               <p className="text-muted-foreground mb-8">
@@ -60,9 +62,11 @@ const ContactSection = () => {
             </div>
 
             <div className="space-y-6">
-              <Card className="p-6 bg-card border-border/50 hover-lift">
+              <Card className={`p-6 bg-card border-border/50 hover-lift hover-glow ${
+                contactVisible ? 'animate-slide-in-left' : 'opacity-0'
+              }`} style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 hover-bounce animate-pulse-glow">
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -74,9 +78,11 @@ const ContactSection = () => {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-card border-border/50 hover-lift">
+              <Card className={`p-6 bg-card border-border/50 hover-lift hover-glow ${
+                contactVisible ? 'animate-slide-in-left' : 'opacity-0'
+              }`} style={{ animationDelay: '0.3s' }}>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 hover-bounce animate-pulse-glow">
                     <Mail className="w-6 h-6 text-accent" />
                   </div>
                   <div>
@@ -88,9 +94,11 @@ const ContactSection = () => {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-card border-border/50 hover-lift">
+              <Card className={`p-6 bg-card border-border/50 hover-lift hover-glow ${
+                contactVisible ? 'animate-slide-in-left' : 'opacity-0'
+              }`} style={{ animationDelay: '0.4s' }}>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 hover-bounce animate-pulse-glow">
                     <MapPin className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
@@ -122,7 +130,9 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="p-8 bg-card border-border/50 animate-slide-in-right">
+          <Card className={`p-8 bg-card border-border/50 hover-glow ${
+            contactVisible ? 'animate-zoom-in' : 'opacity-0'
+          }`} style={{ animationDelay: '0.3s' }}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -191,10 +201,10 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-primary text-primary-foreground hover:shadow-glow transition-all"
+                className="w-full bg-primary text-primary-foreground hover:shadow-glow transition-all hover-lift animate-pulse-glow"
               >
                 Enviar Mensaje
-                <Send className="ml-2 w-5 h-5" />
+                <Send className="ml-2 w-5 h-5 animate-pulse" />
               </Button>
             </form>
           </Card>

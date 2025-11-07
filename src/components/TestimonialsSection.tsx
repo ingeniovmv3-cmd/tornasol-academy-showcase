@@ -1,8 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const TestimonialsSection = () => {
+  const { ref: testimonialsRef, isVisible: testimonialsVisible } = useScrollReveal();
+  const { ref: companiesRef, isVisible: companiesVisible } = useScrollReveal();
   const testimonials = [
     {
       name: "María Rodríguez",
@@ -55,12 +58,15 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Company Logos Marquee */}
-        <div className="mb-16 overflow-hidden">
-          <div className="flex gap-12 justify-center items-center flex-wrap opacity-60 animate-fade-in">
+        <div ref={companiesRef} className="mb-16 overflow-hidden">
+          <div className="flex gap-12 justify-center items-center flex-wrap">
             {companies.map((company, index) => (
               <div
                 key={index}
-                className="text-2xl font-bold text-foreground/60 hover:text-foreground transition-colors"
+                className={`text-2xl font-bold text-foreground/60 hover:text-foreground transition-all cursor-pointer ${
+                  companiesVisible ? 'animate-scale-in' : 'opacity-0'
+                } hover-lift`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {company}
               </div>
@@ -69,17 +75,23 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div ref={testimonialsRef} className="grid md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="p-8 hover-lift bg-card border-border/50 animate-fade-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`p-8 hover-lift hover-glow bg-card border-border/50 ${
+                testimonialsVisible ? 'animate-flip-in' : 'opacity-0'
+              }`}
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Rating */}
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <Star 
+                    key={i} 
+                    className="w-5 h-5 fill-yellow-400 text-yellow-400 hover-bounce animate-scale-in" 
+                    style={{ animationDelay: `${i * 0.1 + 0.5}s` }}
+                  />
                 ))}
               </div>
 
@@ -90,7 +102,7 @@ const TestimonialsSection = () => {
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-2xl">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-2xl hover-bounce animate-float">
                   {testimonial.image}
                 </div>
                 <div>
@@ -103,10 +115,10 @@ const TestimonialsSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center animate-fade-up animate-delay-400">
+        <div className="text-center animate-zoom-in animate-delay-600">
           <button
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-glow transition-all"
+            className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-glow transition-all hover-lift animate-pulse-glow"
           >
             Únete a Nuestros Exitosos Alumni
           </button>

@@ -2,8 +2,11 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Cloud, Shield, Brain, CheckCircle2, Clock, Award, ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const CoursesSection = () => {
+  const { ref: coursesRef, isVisible: coursesVisible } = useScrollReveal();
+  const { ref: statsRef, isVisible: statsVisible } = useScrollReveal();
   const courses = [
     {
       icon: Cloud,
@@ -72,18 +75,21 @@ const CoursesSection = () => {
         </div>
 
         {/* Courses Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div ref={coursesRef} className="grid lg:grid-cols-3 gap-8 mb-16">
           {courses.map((course, index) => {
             const Icon = course.icon;
             return (
               <Card
                 key={index}
-                className="overflow-hidden hover-lift bg-card border-border/50 animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`overflow-hidden hover-lift hover-glow bg-card border-border/50 ${
+                  coursesVisible ? 'animate-zoom-in' : 'opacity-0'
+                }`}
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Card Header with Gradient */}
-                <div className={`p-8 bg-gradient-to-br ${course.gradient}`}>
-                  <div className={`w-16 h-16 rounded-2xl bg-${course.color} flex items-center justify-center mb-4`}>
+                <div className={`p-8 bg-gradient-to-br ${course.gradient} relative overflow-hidden`}>
+                  <div className="absolute inset-0 animate-shimmer"></div>
+                  <div className={`w-16 h-16 rounded-2xl bg-${course.color} flex items-center justify-center mb-4 hover-bounce animate-pulse-glow relative z-10`}>
                     <Icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{course.title}</h3>
@@ -123,10 +129,10 @@ const CoursesSection = () => {
                   {/* CTA Button */}
                   <Button
                     onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                    className={`w-full bg-${course.color} text-${course.color}-foreground hover:shadow-glow`}
+                    className={`w-full bg-${course.color} text-${course.color}-foreground hover:shadow-glow hover-lift animate-pulse-glow`}
                   >
                     Más Información
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                    <ArrowRight className="ml-2 w-4 h-4 animate-pulse" />
                   </Button>
                 </div>
               </Card>
@@ -135,19 +141,23 @@ const CoursesSection = () => {
         </div>
 
         {/* Additional Info */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
-          <Card className="p-8 text-center bg-card hover-lift animate-fade-up animate-delay-300">
-            <div className="text-4xl font-bold gradient-text mb-2">100%</div>
-            <p className="text-muted-foreground">Práctico</p>
-          </Card>
-          <Card className="p-8 text-center bg-card hover-lift animate-fade-up animate-delay-400">
-            <div className="text-4xl font-bold gradient-text mb-2">24/7</div>
-            <p className="text-muted-foreground">Soporte</p>
-          </Card>
-          <Card className="p-8 text-center bg-card hover-lift animate-fade-up animate-delay-500">
-            <div className="text-4xl font-bold gradient-text mb-2">+500</div>
-            <p className="text-muted-foreground">Graduados</p>
-          </Card>
+        <div ref={statsRef} className="grid md:grid-cols-3 gap-8 mt-16">
+          {[
+            { number: "100%", label: "Práctico" },
+            { number: "24/7", label: "Soporte" },
+            { number: "+500", label: "Graduados" },
+          ].map((stat, index) => (
+            <Card 
+              key={index}
+              className={`p-8 text-center bg-card hover-lift hover-glow ${
+                statsVisible ? 'animate-bounce-in' : 'opacity-0'
+              }`}
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              <div className="text-4xl font-bold gradient-text mb-2 hover-rotate">{stat.number}</div>
+              <p className="text-muted-foreground">{stat.label}</p>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
