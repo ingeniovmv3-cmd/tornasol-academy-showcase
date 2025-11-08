@@ -14,23 +14,8 @@ const Navbar = () => {
   };
 
   return (
-    // --- MODIFICADO ---
-    // 1. Posición base (móvil) es 'top-0'
-    // 2. Posición desktop (md:) es 'md:top-4'
+    // --- (Esto se queda igual) ---
     <nav className="fixed top-0 md:top-4 left-0 right-0 z-50 lg:px-16">
-      {/* --- MODIFICADO ---
-          1. Estilos base (móvil): 
-             - Sin 'rounded-full' (usamos 'rounded-none')
-             - 'border-b' (solo abajo)
-             - Sin 'border' (lo reseteamos)
-             - Sin sombra (shadow-none)
-      
-          2. Estilos desktop (md:): 
-             - Vuelve el 'md:rounded-full'
-             - Vuelve el 'md:border' (en todos lados)
-             - Vuelve el 'md:shadow-lg'
-             - Quitamos el 'border-b' (md:border-b-0)
-      */}
       <div
         className="
          mx-auto px-4 
@@ -49,6 +34,7 @@ const Navbar = () => {
             </div>
           </div>
 
+          {/* --- (Menú de navegación se queda igual) --- */}
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("hero")}
@@ -94,24 +80,34 @@ const Navbar = () => {
             </button>
           </div>
 
+          {/* --- INICIO DE MODIFICACIÓN (Botón Desktop) --- */}
           <div className="hidden md:block">
             <Button
-              onClick={() => scrollToSection("courses")}
+              asChild // 1. Añadimos asChild
               className="bg-foreground text-background hover:bg-foreground/90 transition-all rounded-full"
             >
-              Ver cursos
+              {/* 2. Reemplazamos onClick con un <a> tag */}
+              <a
+                href="https://www.academia-i360.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Iniciar Sesión
+              </a>
             </Button>
           </div>
+          {/* --- FIN DE MODIFICACIÓN --- */}
 
           <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
             <Menu className="w-6 h-6" />
           </button>
         </div>
 
-        {/* --- Menú Móvil (Limpiado) --- */}
+        {/* --- Menú Móvil --- */}
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in px-4">
             <div className="flex flex-col gap-4">
+              {/* (Links del menú móvil se quedan igual) */}
               <button
                 onClick={() => scrollToSection("hero")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
@@ -154,12 +150,22 @@ const Navbar = () => {
               >
                 Contact
               </button>
+
+              {/* --- INICIO DE MODIFICACIÓN (Botón Móvil) --- */}
               <Button
-                onClick={() => scrollToSection("courses")}
+                asChild // 1. Añadimos asChild
                 className="bg-foreground text-background hover:bg-foreground/90 transition-all w-full rounded-full"
               >
-                Explorar cursos
+                {/* 2. Reemplazamos onClick con un <a> tag */}
+                <a
+                  href="https://www.academia-i360.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Iniciar Sesión
+                </a>
               </Button>
+              {/* --- FIN DE MODIFICACIÓN --- */}
             </div>
           </div>
         )}
