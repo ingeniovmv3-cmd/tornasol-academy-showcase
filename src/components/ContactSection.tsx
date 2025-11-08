@@ -75,25 +75,25 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: IconLinkedin,
-    href: "#", // Reemplaza con tu URL
+    href: "https://www.linkedin.com/company/ingenio360", // Reemplaza con tu URL
     hover: "hover:bg-blue-600 hover:text-white",
   },
-  {
-    name: "X (Twitter)",
-    icon: IconTwitterX,
-    href: "#", // Reemplaza con tu URL
-    hover: "hover:bg-black hover:text-white",
-  },
+  // {
+  //   name: "X (Twitter)",
+  //   icon: IconTwitterX,
+  //   href: "#", // Reemplaza con tu URL
+  //   hover: "hover:bg-black hover:text-white",
+  // },
   {
     name: "Instagram",
     icon: IconInstagram,
-    href: "#", // Reemplaza con tu URL
+    href: "https://www.instagram.com/ingenio_360s", // Reemplaza con tu URL
     hover: "hover:bg-pink-600 hover:text-white",
   },
   {
     name: "Facebook",
     icon: IconFacebook,
-    href: "#", // Reemplaza con tu URL
+    href: "https://www.facebook.com/ingenio360software", // Reemplaza con tu URL
     hover: "hover:bg-blue-700 hover:text-white",
   },
 ];

@@ -126,7 +126,7 @@ const HeroSection = () => {
               {/* Imagen 2 (ADELANTE): Esta no se toca */}
               <div className="absolute bottom-0 right-0 w-[280px] h-[240px] bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
                 <img
-                  src="https://us.123rf.com/450wm/alexdndz/alexdndz2202/alexdndz220200370/181672470-virtual-assistant-modern-flat-concept-for-web-banner-design-man-contacts-tech-support-and-is.jpg"
+                  src="https://img.freepik.com/foto-gratis/mujer-trabajo-videollamada_23-2148902251.jpg?semt=ais_hybrid&w=740&q=80"
                   alt="Mobile course"
                   className="w-full h-full object-cover"
                 />

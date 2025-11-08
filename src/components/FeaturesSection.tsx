@@ -107,7 +107,7 @@ const FeaturesSection = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl hover-lift hover-rotate">
               <img
                 src={
-                  "https://static.vecteezy.com/system/resources/previews/005/879/570/non_2x/virtual-assistant-modern-flat-concept-for-web-banner-design-operator-writes-messages-in-chat-woman-client-receives-help-and-technical-advice-in-app-illustration-with-isolated-people-scene-vector.jpg"
+                  "https://img.freepik.com/foto-gratis/mujer-sonriente-tiro-medio-escribiendo_23-2148924729.jpg?semt=ais_hybrid&w=740&q=80"
                 }
                 alt="Clase online en vivo"
                 className="w-full h-auto object-cover transition-transform duration-700 hover:scale-110"

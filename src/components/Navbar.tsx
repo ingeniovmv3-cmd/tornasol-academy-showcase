@@ -22,7 +22,7 @@ const Navbar = () => {
             onClick={() => scrollToSection("hero")}
           >
             <div className="w-44 h-10 rounded-xl  flex items-center justify-center">
-              <img src="/logo1.png" alt="" />
+              <img src="/Logo3.png" alt="" />
             </div>
           </div>
 
