@@ -133,7 +133,7 @@ const ContactSection = () => {
     // --- CAMBIO: Añadido 'relative overflow-hidden' para blobs ---
     <section id="contact" className="relative py-20 ">
       {/* --- NUEVO: Blobs de fondo --- */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute lg:inset-0 z-0">
         <div className="absolute -top-16 -left-32 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-70 animate-pulse-light"></div>
         <div className="absolute -bottom-16 -right-32 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl opacity-70 animate-pulse-light animate-delay-200"></div>
       </div>

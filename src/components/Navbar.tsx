@@ -14,15 +14,38 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50">
-      <div className="container mx-auto px-4 bg-background/80 backdrop-blur-lg border border-border rounded-full shadow-lg">
+    // --- MODIFICADO ---
+    // 1. Posición base (móvil) es 'top-0'
+    // 2. Posición desktop (md:) es 'md:top-4'
+    <nav className="fixed top-0 md:top-4 left-0 right-0 z-50 lg:px-16">
+      {/* --- MODIFICADO ---
+          1. Estilos base (móvil): 
+             - Sin 'rounded-full' (usamos 'rounded-none')
+             - 'border-b' (solo abajo)
+             - Sin 'border' (lo reseteamos)
+             - Sin sombra (shadow-none)
+      
+          2. Estilos desktop (md:): 
+             - Vuelve el 'md:rounded-full'
+             - Vuelve el 'md:border' (en todos lados)
+             - Vuelve el 'md:shadow-lg'
+             - Quitamos el 'border-b' (md:border-b-0)
+      */}
+      <div
+        className="
+         mx-auto px-4 
+        bg-background/80 backdrop-blur-lg 
+        rounded-none border-0 border-b border-border shadow-none 
+        md:rounded-full md:border md:shadow-lg md:border-b-1
+      "
+      >
         <div className="flex items-center justify-between h-20 px-4">
           <div
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => scrollToSection("hero")}
           >
-            <div className="w-44 h-10 rounded-xl  flex items-center justify-center">
-              <img src="/Logo3.png" alt="" />
+            <div className="w-28 lg:w-44 h-10 rounded-xl flex items-center justify-center">
+              <img src="/Logo3.png" alt="Logo Ingenio 360" />
             </div>
           </div>
 
@@ -85,6 +108,7 @@ const Navbar = () => {
           </button>
         </div>
 
+        {/* --- Menú Móvil (Limpiado) --- */}
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in px-4">
             <div className="flex flex-col gap-4">
@@ -100,7 +124,6 @@ const Navbar = () => {
               >
                 About
               </button>
-              M{" "}
               <button
                 onClick={() => scrollToSection("courses")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
@@ -111,7 +134,7 @@ const Navbar = () => {
                 onClick={() => scrollToSection("benefits")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                Benefits J{" "}
+                Benefits
               </button>
               <button
                 onClick={() => scrollToSection("testimonials")}

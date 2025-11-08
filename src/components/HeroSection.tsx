@@ -28,9 +28,9 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center py-20"
+      className="relative min-h-screen flex items-center justify-center py-20 max-lg:overflow-hidden"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute lg:inset-0 z-0 ">
         <div className="absolute top-0 -left-20 w-80 h-80 bg-purple-400/50 rounded-full filter blur-3xl opacity-90 animate-pulse-light"></div>
         <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-400/50 rounded-full filter blur-3xl opacity-90 animate-pulse-light animate-delay-100"></div>
         <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-pink-400/50 rounded-full filter blur-3xl opacity-90 animate-pulse-light animate-delay-200"></div>
@@ -98,19 +98,19 @@ const HeroSection = () => {
           {/* Contenedor principal de la imagen: centrado y con altura fija */}
           <div className="relative flex justify-center lg:justify-end items-center h-[500px] animate-fade-in-scale-up">
             {/* Contenedor para el grupo de imágenes, para posicionarlas una sobre otra */}
-            <div className="relative w-[450px] h-[400px]">
+            <div className="relative lg:w-[450px] lg:h-[400px]">
               {/* --- INICIO DE LA MODIFICACIÓN (Cross-fade) --- */}
               {/* Añadimos 'relative' al div contenedor para que las imágenes 
                   'absolute' se apilen dentro de él.
                */}
-              <div className="relative absolute top-0 left-0 w-[380px] h-[300px] bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-700 ease-in-out">
+              <div className=" absolute top-0 -left-24  lg:left-0 w-[280px] lg:w-[380px] h-[280px] lg:h-[300px] bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-700 ease-in-out">
                 {images.map((imgSrc, index) => (
                   <img
                     key={imgSrc} // Usamos la URL como key
                     src={imgSrc}
                     alt="Student learning"
                     className={`
-                      absolute inset-0 w-full h-full object-cover 
+                      absolute lg:inset-0 w-full h-full object-cover 
                       transition-opacity duration-1000 ease-in-out 
                       ${
                         index === currentImageIndex
@@ -124,7 +124,7 @@ const HeroSection = () => {
               {/* --- FIN DE LA MODIFICACIÓN --- */}
 
               {/* Imagen 2 (ADELANTE): Esta no se toca */}
-              <div className="absolute bottom-0 right-0 w-[280px] h-[240px] bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
+              <div className="absolute bottom-0 max-lg:-top-44 -right-16 lg:right-0 w-[250px] lg:w-[280px] h-[180px] lg:h-[240px] bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
                 <img
                   src="https://img.freepik.com/foto-gratis/mujer-trabajo-videollamada_23-2148902251.jpg?semt=ais_hybrid&w=740&q=80"
                   alt="Mobile course"

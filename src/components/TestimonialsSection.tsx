@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
 
   return (
     <section id="testimonials" className="relative py-20 ">
-      <div className="absolute inset-0 z-0">
+      <div className="absolute lg:inset-0 z-0">
         <div className="absolute top-0 -right-32 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl opacity-70 animate-pulse-light"></div>
         <div className="absolute top-1/2 -left-32 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-70 animate-pulse-light animate-delay-200"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl opacity-70 animate-pulse-light animate-delay-100"></div>
