@@ -28,16 +28,18 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center py-20"
     >
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 -left-20 w-80 h-80 bg-purple-400/50 rounded-full filter blur-3xl opacity-90 animate-pulse-light"></div>
         <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-400/50 rounded-full filter blur-3xl opacity-90 animate-pulse-light animate-delay-100"></div>
         <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-pink-400/50 rounded-full filter blur-3xl opacity-90 animate-pulse-light animate-delay-200"></div>
+        {/* A (eliminé la 'A' que estaba suelta aquí) */}
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center justify-center">
+          {/* ESTA SECCIÓN DE TEXTO NO SE TOCA */}
           <div className="space-y-6 text-center lg:text-left">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900 animate-fade-in-slow">
               Transforma tu perfil con
@@ -87,26 +89,46 @@ const HeroSection = () => {
                 onClick={() => scrollToSection("courses")}
                 className="bg-gray-900 text-white hover:bg-gray-800 transition-all duration-500 text-lg px-8 py-6 rounded-md shadow-lg flex items-center group"
               >
-                Comprar Cursos
+                Ver Cursos
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
           </div>
 
+          {/* Contenedor principal de la imagen: centrado y con altura fija */}
           <div className="relative flex justify-center lg:justify-end items-center h-[500px] animate-fade-in-scale-up">
-            <div className="absolute w-[400px] h-[300px] bg-white rounded-3xl shadow-xl rotate-3 transform-gpu transition-all duration-1000 ease-in-out">
-              <img
-                src={images[currentImageIndex]}
-                alt="Student learning"
-                className="w-full h-full object-cover rounded-3xl"
-              />
-            </div>
-            <div className="absolute w-[200px] h-[400px] bg-white rounded-[2.5rem] shadow-2xl border-[10px] border-black overflow-hidden left-1/2 lg:left-auto lg:-right-4 bottom-1/4 transform -translate-x-1/2 lg:translate-x-0 rotate-[-10deg] animate-float-bob">
-              <div className="absolute inset-0 bg-gray-900 rounded-[2rem]">
+            {/* Contenedor para el grupo de imágenes, para posicionarlas una sobre otra */}
+            <div className="relative w-[450px] h-[400px]">
+              {/* --- INICIO DE LA MODIFICACIÓN (Cross-fade) --- */}
+              {/* Añadimos 'relative' al div contenedor para que las imágenes 
+                  'absolute' se apilen dentro de él.
+               */}
+              <div className="relative absolute top-0 left-0 w-[380px] h-[300px] bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-700 ease-in-out">
+                {images.map((imgSrc, index) => (
+                  <img
+                    key={imgSrc} // Usamos la URL como key
+                    src={imgSrc}
+                    alt="Student learning"
+                    className={`
+                      absolute inset-0 w-full h-full object-cover 
+                      transition-opacity duration-1000 ease-in-out 
+                      ${
+                        index === currentImageIndex
+                          ? "opacity-100"
+                          : "opacity-0"
+                      }
+                    `}
+                  />
+                ))}
+              </div>
+              {/* --- FIN DE LA MODIFICACIÓN --- */}
+
+              {/* Imagen 2 (ADELANTE): Esta no se toca */}
+              <div className="absolute bottom-0 right-0 w-[280px] h-[240px] bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
                 <img
-                  src="https://img.freepik.com/foto-gratis/detalle-escritura-joven-hermosa-mujer_1301-4731.jpg"
+                  src="https://us.123rf.com/450wm/alexdndz/alexdndz2202/alexdndz220200370/181672470-virtual-assistant-modern-flat-concept-for-web-banner-design-man-contacts-tech-support-and-is.jpg"
                   alt="Mobile course"
-                  className="w-full h-full object-cover rounded-[2rem]"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -173,21 +195,8 @@ const HeroSection = () => {
           animation: fadeInScaleUp 1.8s ease-out forwards;
         }
 
-        @keyframes floatBob {
-          0% {
-            transform: translateY(0) rotate(-10deg);
-          }
-          50% {
-            transform: translateY(-15px) rotate(-12deg);
-          }
-          100% {
-            transform: translateY(0) rotate(-10deg);
-          }
-        }
-
-        .animate-float-bob {
-          animation: floatBob 6s ease-in-out infinite;
-        }
+        /* Animación 'floatBob' eliminada ya que la quitamos del div */
+        /* .animate-float-bob { ... } */
 
         @keyframes pulseLight {
           0% {

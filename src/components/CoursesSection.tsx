@@ -93,7 +93,7 @@ const CoursesSection = () => {
   ];
 
   return (
-    <section id="courses" className="py-20 bg-muted/30">
+    <section id="courses" className="py-20 ">
       <div className="container mx-auto px-4">
         {/* Header (ya está bien con fade-up) */}
         <div className="text-center mb-16 animate-fade-up">
@@ -122,7 +122,7 @@ const CoursesSection = () => {
               <Card
                 key={index}
                 // --- CAMBIO AQUÍ: de 'animate-zoom-in' a 'animate-fade-up' ---
-                className={`overflow-hidden hover-lift hover-glow bg-card border-border/50 ${
+                className={` hover-lift hover-glow bg-card border-border/50 ${
                   coursesVisible ? "animate-fade-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 0.2}s` }}

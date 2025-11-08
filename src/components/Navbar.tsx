@@ -21,7 +21,7 @@ const Navbar = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => scrollToSection("hero")}
           >
-            <div className="w-52 h-10 rounded-xl  flex items-center justify-center">
+            <div className="w-44 h-10 rounded-xl  flex items-center justify-center">
               <img src="/logo1.png" alt="" />
             </div>
           </div>
@@ -76,7 +76,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("courses")}
               className="bg-foreground text-background hover:bg-foreground/90 transition-all rounded-full"
             >
-              Explorar cursos
+              Ver cursos
             </Button>
           </div>
 

@@ -1,41 +1,56 @@
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, Users, Award, BookOpen } from "lucide-react";
+import {
+  CheckCircle2,
+  Users,
+  Award,
+  BookOpen,
+  Briefcase,
+  Video,
+  Target,
+} from "lucide-react"; // Importé nuevos íconos
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import onlineClassImage from "@/assets/online-class.jpg";
 
 const FeaturesSection = () => {
   const { ref: featuresRef, isVisible: featuresVisible } = useScrollReveal();
   const { ref: statsRef, isVisible: statsVisible } = useScrollReveal();
+
+  // --- INICIO DE LA MODIFICACIÓN DE TEXTO (FEATURES) ---
+  // Actualicé los íconos y el texto para alinearlos con el feedback
   const features = [
     {
-      icon: Users,
-      title: "Aprendizaje Online",
+      icon: Video, // Icono para "Plataforma"
+      title: "Plataforma Académica",
       description:
-        "Participa en sesiones interactivas en tiempo real dirigidas por expertos de la industria, garantizando comprensión profunda y retroalimentación instantánea.",
+        "Accede a todas las clases grabadas después de tu curso. Estudia a tu ritmo y repasa conceptos clave cuando lo necesites desde nuestra plataforma.",
     },
     {
-      icon: Award,
-      title: "Proyectos Hands-on",
+      icon: Briefcase, // Icono para "Empleabilidad"
+      title: "Enfoque en Empleabilidad",
       description:
-        "Aplica tus habilidades a escenarios del mundo real con asignaciones prácticas diseñadas para mejorar el aprendizaje y construir tu portafolio.",
+        "Todo nuestro contenido, incluyendo ejercicios prácticos y teóricos, está 100% enfocado en prepararte para el mercado laboral real.",
     },
     {
-      icon: BookOpen,
-      title: "Mentoría Dedicada",
+      icon: Users, // Icono para "Soporte"
+      title: "Soporte Especializado",
       description:
-        "Recibe orientación personalizada y apoyo de mentores experimentados para ayudarte a navegar desafíos y alcanzar tus metas de aprendizaje.",
+        "Te brindamos soporte y guía personalizada para ayudarte a tomar las mejores decisiones y guiarte en cada paso de tu carrera tech.",
     },
   ];
+  // --- FIN DE LA MODIFICACIÓN DE TEXTO (FEATURES) ---
 
+  // --- INICIO DE LA MODIFICACIÓN DE TEXTO (BENEFITS) ---
+  // Actualicé la lista de "beneficios" del Top 1%
   const benefits = [
-    "Aprende principios desde la investigación hasta crear interfaces funcionales",
-    "Construye proyectos del mundo real usando herramientas como AWS, Python y más",
-    "Desarrolla habilidades para roles tech, incluyendo prototipado y testing",
-    "Obtén retroalimentación experta para refinar tu trabajo",
+    "Accede a una plataforma académica con clases grabadas 24/7",
+    "Domina ejercicios prácticos y teóricos con enfoque en empleabilidad",
+    "Recibe soporte especializado para guiarte en cada paso de tu carrera",
+    "Construye proyectos del mundo real con herramientas como AWS, Python y más",
   ];
+  // --- FIN DE LA MODIFICACIÓN DE TEXTO (BENEFITS) ---
 
   return (
-    <section id="overview" className="relative py-20 overflow-hidden">
+    <section id="overview" className="relative py-20 ">
       {/* --- Los blobs de fondo están bien --- */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 -left-32 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-70 animate-pulse-light"></div>
@@ -58,9 +73,6 @@ const FeaturesSection = () => {
                   className="flex gap-3 items-start animate-slide-in-left"
                   style={{ animationDelay: `${index * 0.1 + 0.2}s` }}
                 >
-                  {/* --- CAMBIO AQUÍ --- */}
-                  {/* De 'animate-bounce-in' a 'animate-fade-up' (o 'animate-fade-in' si la tienes definida). */}
-                  {/* 'fade-up' le da una sensación de "check" más suave. */}
                   <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5 animate-fade-up" />
                   <p className="text-foreground/80">{benefit}</p>
                 </div>
@@ -94,33 +106,30 @@ const FeaturesSection = () => {
           <div className="relative animate-zoom-in animate-delay-300">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl hover-lift hover-rotate">
               <img
-                src={onlineClassImage}
+                src={
+                  "https://static.vecteezy.com/system/resources/previews/005/879/570/non_2x/virtual-assistant-modern-flat-concept-for-web-banner-design-operator-writes-messages-in-chat-woman-client-receives-help-and-technical-advice-in-app-illustration-with-isolated-people-scene-vector.jpg"
+                }
                 alt="Clase online en vivo"
                 className="w-full h-auto object-cover transition-transform duration-700 hover:scale-110"
               />
             </div>
           </div>
         </div>
+
         <div ref={featuresRef} className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <Card
                 key={index}
-                // --- CAMBIO AQUÍ ---
-                // De 'animate-flip-in' a 'animate-fade-up'. Mucho más suave.
                 className={`p-8 hover-lift hover-glow bg-card/80 backdrop-blur-sm border-border/50 ${
                   featuresVisible ? "animate-fade-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                {/* --- CAMBIO AQUÍ --- */}
-                {/* Quitado 'animate-pulse-glow' para reducir ruido visual */}
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 hover-bounce">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
-                {/* --- CAMBIO AQUÍ --- */}
-                {/* Quitado el texto 'New' */}
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
@@ -129,6 +138,7 @@ const FeaturesSection = () => {
             );
           })}
         </div>
+
         <div ref={statsRef} className="grid md:grid-cols-4 gap-8 mt-20">
           {[
             { number: "30+", label: "ejercicios" },
@@ -138,18 +148,12 @@ const FeaturesSection = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              // --- CAMBIO AQUÍ ---
-              // De 'animate-bounce-in' a 'animate-fade-up'.
               className={`text-center ${
                 statsVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* --- CAMBIO AQUÍ --- */}
-              {/* Quitado el texto 'T' */}
               <div className="text-5xl font-bold gradient-text mb-2 cursor-default">
-                {/* --- CAMBIO AQUÍ --- */}
-                {/* Quitado el texto 'Boolean' */}
                 {stat.number}
               </div>
               <div className="text-muted-foreground">{stat.label}</div>
