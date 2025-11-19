@@ -113,10 +113,19 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // WhatsApp integration
+    const whatsappNumber = "50364554356";
+    const message = `*Nuevo Contacto desde el sitio web*\n\n*Nombre:* ${formData.name}\n*Email:* ${formData.email}\n*Teléfono:* ${formData.phone}\n*Mensaje:* ${formData.message}`;
+    
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+    
     toast({
-      title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo pronto.",
+      title: "¡Redirigiendo a WhatsApp!",
+      description: "Te estamos conectando con nuestro equipo.",
     });
+    
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
