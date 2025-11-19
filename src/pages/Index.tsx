@@ -1,12 +1,16 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
-import BenefitsSection from "@/components/BenefitsSection";
+import PasosSection from "@/components/PasosSection";
 import CoursesSection from "@/components/CoursesSection";
+import DocentesSection from "@/components/DocentesSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
 import CommunitySection from "@/components/CommunitySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -14,12 +18,16 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <FeaturesSection />
-      <BenefitsSection />
+      <PasosSection />
       <CoursesSection />
+      <DocentesSection />
+      <BenefitsSection />
       <TestimonialsSection />
+      <FAQSection />
       <CommunitySection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

@@ -40,43 +40,49 @@ const Navbar = () => {
               onClick={() => scrollToSection("hero")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Home
+              Inicio
             </button>
             <button
               onClick={() => scrollToSection("overview")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              About
+              Nosotros
             </button>
             <button
               onClick={() => scrollToSection("courses")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Courses
+              Cursos
+            </button>
+            <button
+              onClick={() => scrollToSection("teachers")}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Docentes
             </button>
             <button
               onClick={() => scrollToSection("benefits")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Benefits
+              Beneficios
             </button>
             <button
               onClick={() => scrollToSection("testimonials")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Reviews
+              Testimonios
             </button>
             <button
               onClick={() => scrollToSection("community")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              FAQs
+              Preguntas
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Contact
+              Contacto
             </button>
           </div>
 
@@ -107,48 +113,53 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in px-4">
             <div className="flex flex-col gap-4">
-              {/* (Links del menú móvil se quedan igual) */}
               <button
                 onClick={() => scrollToSection("hero")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                Home
+                Inicio
               </button>
               <button
                 onClick={() => scrollToSection("overview")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                About
+                Nosotros
               </button>
               <button
                 onClick={() => scrollToSection("courses")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                Courses
+                Cursos
+              </button>
+              <button
+                onClick={() => scrollToSection("teachers")}
+                className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Docentes
               </button>
               <button
                 onClick={() => scrollToSection("benefits")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                Benefits
+                Beneficios
               </button>
               <button
                 onClick={() => scrollToSection("testimonials")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                Reviews
+                Testimonios
               </button>
               <button
                 onClick={() => scrollToSection("community")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                FAQs
+                Preguntas
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                Contact
+                Contacto
               </button>
 
               {/* --- INICIO DE MODIFICACIÓN (Botón Móvil) --- */}
