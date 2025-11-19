@@ -10,7 +10,6 @@ import FAQSection from "@/components/FAQSection";
 import CommunitySection from "@/components/CommunitySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -27,7 +26,6 @@ const Index = () => {
       <CommunitySection />
       <ContactSection />
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };

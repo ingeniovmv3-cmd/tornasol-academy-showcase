@@ -1,5 +1,6 @@
 // --- NUEVO: Importa React y useRef ---
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -63,6 +64,7 @@ const CoursesSection = () => {
     // ... (Tu array de 9 cursos va aquí, no lo he modificado) ...
     // [AWS, Ciberseguridad, IA, SQL, M365, Odoo, Agentes IA, Python, Azure]
     {
+      id: "aws-cloud-developer",
       icon: Cloud,
       title: "AWS Cloud Developer",
       duration: "6 meses",
@@ -79,6 +81,7 @@ const CoursesSection = () => {
       color: "primary",
     },
     {
+      id: "ciberseguridad",
       icon: Shield,
       title: "Ciberseguridad",
       duration: "4 meses",
@@ -95,6 +98,7 @@ const CoursesSection = () => {
       color: "accent",
     },
     {
+      id: "inteligencia-artificial",
       icon: Brain,
       title: "Inteligencia Artificial",
       duration: "5 meses",
@@ -111,6 +115,7 @@ const CoursesSection = () => {
       color: "secondary",
     },
     {
+      id: "sql-architect",
       icon: Database,
       title: "SQL Architect",
       duration: "4 meses",
@@ -127,6 +132,7 @@ const CoursesSection = () => {
       color: "primary",
     },
     {
+      id: "microsoft-365-specialist",
       icon: AppWindow,
       title: "Administración en Microsoft 365",
       duration: "4 meses",
@@ -143,6 +149,7 @@ const CoursesSection = () => {
       color: "accent",
     },
     {
+      id: "odoo-developer",
       icon: Briefcase,
       title: "Capacitación en Odoo ERP",
       duration: "A tu ritmo",
@@ -159,6 +166,7 @@ const CoursesSection = () => {
       color: "secondary",
     },
     {
+      id: "agentes-ia",
       icon: Bot,
       title: "Agentes de IA",
       duration: "3 meses",
@@ -175,6 +183,7 @@ const CoursesSection = () => {
       color: "primary",
     },
     {
+      id: "python-data-science",
       icon: Code,
       title: "Python y Java",
       duration: "6 meses",
@@ -191,6 +200,7 @@ const CoursesSection = () => {
       color: "accent",
     },
     {
+      id: "azure-cloud-engineer",
       icon: CloudCog,
       title: "Azure Cloud",
       duration: "6 meses",
@@ -329,17 +339,14 @@ const CoursesSection = () => {
                         </div>
 
                         {/* --- NUEVO: mt-auto para empujar el botón al final --- */}
-                        <Button
-                          onClick={() =>
-                            document
-                              .getElementById("contact")
-                              ?.scrollIntoView({ behavior: "smooth" })
-                          }
-                          className={`w-full group ${colors.bg} ${colors.textForeground} ${colors.hoverBg} hover:shadow-glow hover-lift mt-auto`}
-                        >
-                          Más Información
-                          <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                        </Button>
+                        <Link to={`/course/${course.id}`} className="w-full mt-auto">
+                          <Button
+                            className={`w-full group ${colors.bg} ${colors.textForeground} ${colors.hoverBg} hover:shadow-glow hover-lift`}
+                          >
+                            Ver Detalles del Curso
+                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                          </Button>
+                        </Link>
                       </div>
                     </Card>
                   </div>
