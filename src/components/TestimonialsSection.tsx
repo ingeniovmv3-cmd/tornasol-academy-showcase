@@ -60,7 +60,7 @@ const TestimonialsSection = () => {
 
           {/* --- INICIO DE LA MODIFICACIÓN DE TEXTO --- */}
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Nuestros Alumni trabajan en empresas <br />
+            Nuestros Alumnos trabajan en empresas <br />
             <span className="gradient-text">líderes del sector tech</span>
           </h2>
           {/* --- FIN DE LA MODIFICACIÓN DE TEXTO --- */}

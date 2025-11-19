@@ -113,19 +113,21 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // WhatsApp integration
-    const whatsappNumber = "50364554356";
+    const whatsappNumber = "+573242574768";
     const message = `*Nuevo Contacto desde el sitio web*\n\n*Nombre:* ${formData.name}\n*Email:* ${formData.email}\n*Teléfono:* ${formData.phone}\n*Mensaje:* ${formData.message}`;
-    
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`;
     window.open(whatsappUrl, "_blank");
-    
+
     toast({
       title: "¡Redirigiendo a WhatsApp!",
       description: "Te estamos conectando con nuestro equipo.",
     });
-    
+
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
@@ -366,7 +368,7 @@ const ContactSection = () => {
                 type="submit"
                 size="lg"
                 // --- CAMBIO: Añadido 'group', quitado 'animate-pulse-glow' ---
-                className="w-full group bg-primary text-primary-foreground hover:shadow-glow transition-all hover-lift"
+                className="w-full group bg-primary text-primary-foreground hover:shadow-glow transition-all "
               >
                 Enviar Mensaje
                 {/* --- CAMBIO: Interacción con 'group-hover', quitado 'animate-pulse' --- */}

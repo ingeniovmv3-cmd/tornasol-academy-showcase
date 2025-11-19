@@ -19,11 +19,11 @@ const Index = () => {
       <FeaturesSection />
       <PasosSection />
       <CoursesSection />
-      <DocentesSection />
       <BenefitsSection />
       <TestimonialsSection />
       <FAQSection />
       <CommunitySection />
+      <DocentesSection />
       <ContactSection />
       <Footer />
     </div>

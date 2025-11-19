@@ -21,6 +21,7 @@ import {
   User,
   BookOpen,
 } from "lucide-react";
+import { useEffect } from "react";
 
 // Course data (same as CoursesSection)
 const courseColorMap = {
@@ -324,6 +325,10 @@ const CourseDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   const course = courses.find((c) => c.id === id);
 
   if (!course) {
@@ -340,12 +345,15 @@ const CourseDetails = () => {
   }
 
   const Icon = course.icon;
-  const colorScheme = courseColorMap[course.color as keyof typeof courseColorMap];
+  const colorScheme =
+    courseColorMap[course.color as keyof typeof courseColorMap];
 
   const handleEnroll = () => {
     const whatsappNumber = "50364554356";
     const message = `Hola! Estoy interesado en el curso *${course.title}*. Me gustaría recibir más información sobre inscripción y costos.`;
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`;
     window.open(whatsappUrl, "_blank");
   };
 
@@ -356,8 +364,10 @@ const CourseDetails = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background gradient */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${colorScheme.gradient} opacity-50`}></div>
-        
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${colorScheme.gradient} opacity-50`}
+        ></div>
+
         <div className="container mx-auto px-4 relative z-10">
           <Button
             variant="ghost"
@@ -370,7 +380,9 @@ const CourseDetails = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className={`inline-flex items-center justify-center w-20 h-20 ${colorScheme.bg} rounded-2xl mb-6`}>
+              <div
+                className={`inline-flex items-center justify-center w-20 h-20 ${colorScheme.bg} rounded-2xl mb-6`}
+              >
                 <Icon className={`w-10 h-10 ${colorScheme.textForeground}`} />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -381,15 +393,24 @@ const CourseDetails = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
-                <Badge variant="secondary" className="flex items-center gap-2 px-4 py-2">
+                <Badge
+                  variant="secondary"
+                  className="flex items-center gap-2 px-4 py-2"
+                >
                   <Clock className="w-4 h-4" />
                   {course.duration}
                 </Badge>
-                <Badge variant="secondary" className="flex items-center gap-2 px-4 py-2">
+                <Badge
+                  variant="secondary"
+                  className="flex items-center gap-2 px-4 py-2"
+                >
                   <BookOpen className="w-4 h-4" />
                   {course.modality}
                 </Badge>
-                <Badge variant="secondary" className="flex items-center gap-2 px-4 py-2">
+                <Badge
+                  variant="secondary"
+                  className="flex items-center gap-2 px-4 py-2"
+                >
                   <Award className="w-4 h-4" />
                   {course.certification}
                 </Badge>
@@ -409,7 +430,9 @@ const CourseDetails = () => {
               <ul className="space-y-3">
                 {course.highlights.map((highlight, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className={`w-5 h-5 ${colorScheme.text} flex-shrink-0 mt-0.5`} />
+                    <CheckCircle2
+                      className={`w-5 h-5 ${colorScheme.text} flex-shrink-0 mt-0.5`}
+                    />
                     <span>{highlight}</span>
                   </li>
                 ))}
@@ -426,12 +449,14 @@ const CourseDetails = () => {
             <h2 className="text-3xl font-bold mb-8 text-center">
               Contenido del Curso
             </h2>
-            
+
             <Card className="p-8 bg-card/80 backdrop-blur-sm">
               <div className="grid md:grid-cols-2 gap-6">
                 {course.syllabus.map((module, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <div className={`w-8 h-8 rounded-lg ${colorScheme.bg} ${colorScheme.textForeground} flex items-center justify-center flex-shrink-0 font-bold`}>
+                    <div
+                      className={`w-8 h-8 rounded-lg ${colorScheme.bg} ${colorScheme.textForeground} flex items-center justify-center flex-shrink-0 font-bold`}
+                    >
                       {index + 1}
                     </div>
                     <div>
@@ -452,19 +477,24 @@ const CourseDetails = () => {
             <h2 className="text-3xl font-bold mb-8 text-center">
               Tu Instructor
             </h2>
-            
+
             <Card className="p-8 bg-card/80 backdrop-blur-sm">
               <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className={`w-32 h-32 rounded-full ${colorScheme.bg} flex items-center justify-center flex-shrink-0`}>
+                <div
+                  className={`w-32 h-32 rounded-full ${colorScheme.bg} flex items-center justify-center flex-shrink-0`}
+                >
                   <User className={`w-16 h-16 ${colorScheme.textForeground}`} />
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-2xl font-bold mb-2">{course.instructor.name}</h3>
+                  <h3 className="text-2xl font-bold mb-2">
+                    {course.instructor.name}
+                  </h3>
                   <p className={`${colorScheme.text} font-medium mb-2`}>
                     {course.instructor.specialty}
                   </p>
                   <p className="text-muted-foreground mb-4">
-                    {course.instructor.experience} de experiencia en la industria
+                    {course.instructor.experience} de experiencia en la
+                    industria
                   </p>
                   <Badge variant="outline">Certificado Profesional</Badge>
                 </div>
@@ -482,7 +512,8 @@ const CourseDetails = () => {
               ¿Listo para transformar tu carrera?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Únete a cientos de estudiantes que ya están construyendo su futuro tech
+              Únete a cientos de estudiantes que ya están construyendo su futuro
+              tech
             </p>
             <Button
               size="lg"

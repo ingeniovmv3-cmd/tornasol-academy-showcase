@@ -339,9 +339,12 @@ const CoursesSection = () => {
                         </div>
 
                         {/* --- NUEVO: mt-auto para empujar el botón al final --- */}
-                        <Link to={`/course/${course.id}`} className="w-full mt-auto">
+                        <Link
+                          to={`/course/${course.id}`}
+                          className="w-full mt-auto"
+                        >
                           <Button
-                            className={`w-full group ${colors.bg} ${colors.textForeground} ${colors.hoverBg} hover:shadow-glow hover-lift`}
+                            className={`w-full group ${colors.bg} ${colors.textForeground} ${colors.hoverBg} hover:shadow-glow `}
                           >
                             Ver Detalles del Curso
                             <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
