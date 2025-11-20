@@ -49,16 +49,16 @@ const Navbar = () => {
               Nosotros
             </button>
             <button
+              onClick={() => scrollToSection("pasos")}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Pasos
+            </button>
+            <button
               onClick={() => scrollToSection("courses")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Cursos
-            </button>
-            <button
-              onClick={() => scrollToSection("teachers")}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              Docentes
             </button>
             <button
               onClick={() => scrollToSection("benefits")}
@@ -77,6 +77,18 @@ const Navbar = () => {
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Preguntas
+            </button>
+            <button
+              onClick={() => scrollToSection("community")}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Comunidad
+            </button>
+            <button
+              onClick={() => scrollToSection("teachers")}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Docentes
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -126,16 +138,16 @@ const Navbar = () => {
                 Nosotros
               </button>
               <button
+                onClick={() => scrollToSection("pasos")}
+                className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Pasos
+              </button>
+              <button
                 onClick={() => scrollToSection("courses")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 Cursos
-              </button>
-              <button
-                onClick={() => scrollToSection("teachers")}
-                className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
-              >
-                Docentes
               </button>
               <button
                 onClick={() => scrollToSection("benefits")}
@@ -154,6 +166,18 @@ const Navbar = () => {
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 Preguntas
+              </button>
+              <button
+                onClick={() => scrollToSection("community")}
+                className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Comunidad
+              </button>
+              <button
+                onClick={() => scrollToSection("teachers")}
+                className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Docentes
               </button>
               <button
                 onClick={() => scrollToSection("contact")}

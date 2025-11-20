@@ -78,9 +78,9 @@ const TestimonialsSection = () => {
             {companies.map((company, index) => (
               <div
                 key={index}
-                className={`text-2xl font-bold text-foreground/60 hover:text-foreground transition-all cursor-pointer ${
+                className={`text-2xl font-bold text-foreground/60 ${
                   companiesVisible ? "animate-fade-up" : "opacity-0"
-                } hover-lift`}
+                }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {company}
