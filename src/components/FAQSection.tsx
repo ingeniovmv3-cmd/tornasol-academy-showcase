@@ -25,7 +25,7 @@ const FAQSection = () => {
     {
       pregunta: "¿Qué métodos de pago tienen disponibles?",
       respuesta:
-        "Aceptamos múltiples métodos de pago para tu comodidad: tarjetas de crédito y débito (Visa, Mastercard, American Express), transferencias bancarias, PayPal, y opciones de pago local según tu país.",
+        "Aceptamos múltiples métodos de pago para tu comodidad: tarjetas de crédito y débito (Visa, Mastercard, American Express), transferencias bancarias, Wompi, y opciones de pago local según tu país.",
     },
     {
       pregunta: "¿Las certificaciones son internacionales?",

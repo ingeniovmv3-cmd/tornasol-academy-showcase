@@ -87,7 +87,7 @@ const socialLinks = [
   {
     name: "Instagram",
     icon: IconInstagram,
-    href: "https://www.instagram.com/ingenio_360s", // Reemplaza con tu URL
+    href: "https://www.instagram.com/academia.ingenio360?igsh=N2swZHkwdHVxc3Q5",
     hover: "hover:bg-pink-600 hover:text-white",
   },
   {

@@ -73,7 +73,7 @@ const Navbar = () => {
               Testimonios
             </button>
             <button
-              onClick={() => scrollToSection("community")}
+              onClick={() => scrollToSection("faq")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Preguntas
@@ -150,7 +150,7 @@ const Navbar = () => {
                 Testimonios
               </button>
               <button
-                onClick={() => scrollToSection("community")}
+                onClick={() => scrollToSection("faq")}
                 className="text-left py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 Preguntas
