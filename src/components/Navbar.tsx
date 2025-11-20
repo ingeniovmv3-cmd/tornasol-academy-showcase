@@ -34,8 +34,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* --- (Menú de navegación se queda igual) --- */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation - Solo se muestra en pantallas xl y mayores */}
+          <div className="hidden xl:flex items-center gap-6">
             <button
               onClick={() => scrollToSection("hero")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
@@ -98,8 +98,8 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* --- INICIO DE MODIFICACIÓN (Botón Desktop) --- */}
-          <div className="hidden md:block">
+          {/* Desktop Login Button */}
+          <div className="hidden xl:block">
             <Button
               asChild // 1. Añadimos asChild
               className="bg-foreground text-background hover:bg-foreground/90 transition-all rounded-full"
@@ -116,14 +116,15 @@ const Navbar = () => {
           </div>
           {/* --- FIN DE MODIFICACIÓN --- */}
 
-          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
+          {/* Mobile Menu Button - Se muestra en pantallas menores a xl */}
+          <button className="xl:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
             <Menu className="w-6 h-6" />
           </button>
         </div>
 
-        {/* --- Menú Móvil --- */}
+        {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 animate-fade-in px-4">
+          <div className="xl:hidden py-4 animate-fade-in px-4">
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection("hero")}
