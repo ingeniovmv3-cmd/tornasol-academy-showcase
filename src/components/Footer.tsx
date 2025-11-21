@@ -129,9 +129,9 @@ const Footer = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-52 h-10 rounded-xl  flex items-center justify-center">
-                <img src="/Logo3.png" alt="" />
+            <div className="flex items-center gap-2 mb-16">
+              <div className="w-28 lg:w-32 h-10 rounded-xl  flex items-center justify-center">
+                <img src="/INGENIO360academiaPOSITIVOsinfondo.png" alt="" />
               </div>
             </div>
             <p className="text-muted-foreground mb-6 max-w-sm">

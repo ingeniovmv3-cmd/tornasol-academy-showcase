@@ -29,8 +29,11 @@ const Navbar = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => scrollToSection("hero")}
           >
-            <div className="w-28 lg:w-44 h-10 rounded-xl flex items-center justify-center">
-              <img src="/Logo3.png" alt="Logo Ingenio 360" />
+            <div className="w-14 lg:w-22 h-10 rounded-xl flex items-center justify-center">
+              <img
+                src="/INGENIO360academiaPOSITIVOsinfondo.png"
+                alt="Logo Ingenio 360"
+              />
             </div>
           </div>
 
