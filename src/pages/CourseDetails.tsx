@@ -20,6 +20,11 @@ import {
   ArrowLeft,
   User,
   BookOpen,
+  Play,
+  Download,
+  Video,
+  Monitor,
+  Menu as MenuIcon,
 } from "lucide-react";
 import { useEffect } from "react";
 
@@ -232,17 +237,29 @@ const courses = [
   {
     id: "agentes-ia",
     icon: Bot,
-    title: "Agentes IA",
+    title: "Agentes IA Developer 2026",
     duration: "3 meses",
     modality: "En línea",
     certification: "Especializado",
     description:
       "Crea agentes inteligentes con la última tecnología. Aprende LangChain, RAG, y desarrollo de chatbots empresariales con LLMs.",
     highlights: [
-      "LangChain & OpenAI API",
-      "Chatbots inteligentes",
-      "RAG (Retrieval Augmented Generation)",
-      "Integración empresarial",
+      "Dominio de n8n para automatización empresarial y flujos complejos.",
+      "Desarrollo de agentes conversacionales 24/7 (texto, voz, imagen).",
+      "Integración de APIs, bases de datos y sistemas avanzados.",
+      "Capacitación para crear tu propia agencia de automatización rentable.",
+      "Aumento de productividad en ventas, marketing y soporte.",
+      "Desarrollo de proyectos reales para portafolio.",
+      "Acompañamiento académico y tutoría personalizada.",
+      "Alta rentabilidad del sector (87%).",
+    ],
+    graduateProfile: [
+      "Automatización Empresarial Avanzada con n8n.",
+      "Desarrollo de Agentes Conversacionales Multicanal.",
+      "Integración de APIs y Bases de Datos (Google Cloud, Supabase, Redis).",
+      "Implementación de Memoria Avanzada y RAG.",
+      "Gestión Automática de Leads y Soporte.",
+      "Creación y Gestión de Agencias de Automatización.",
     ],
     syllabus: [
       "Fundamentos de LLMs",
@@ -425,19 +442,41 @@ const CourseDetails = () => {
               </Button>
             </div>
 
-            <Card className="p-8 bg-card/80 backdrop-blur-sm">
-              <h3 className="text-xl font-bold mb-4">Lo que aprenderás</h3>
-              <ul className="space-y-3">
-                {course.highlights.map((highlight, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2
-                      className={`w-5 h-5 ${colorScheme.text} flex-shrink-0 mt-0.5`}
-                    />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
+            {course.id === "agentes-ia" ? (
+              <Card className="p-8 bg-card/80 backdrop-blur-sm">
+                <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center mb-6">
+                  <Play className="w-16 h-16 text-primary mb-4" />
+                  <p className="text-muted-foreground font-medium">
+                    Video Introductorio Ingenio 360
+                  </p>
+                </div>
+                <h3 className="text-xl font-bold mb-4">Lo que aprenderás</h3>
+                <ul className="space-y-3">
+                  {course.highlights.map((highlight, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle2
+                        className={`w-5 h-5 ${colorScheme.text} flex-shrink-0 mt-0.5`}
+                      />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            ) : (
+              <Card className="p-8 bg-card/80 backdrop-blur-sm">
+                <h3 className="text-xl font-bold mb-4">Lo que aprenderás</h3>
+                <ul className="space-y-3">
+                  {course.highlights.map((highlight, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle2
+                        className={`w-5 h-5 ${colorScheme.text} flex-shrink-0 mt-0.5`}
+                      />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            )}
           </div>
         </div>
       </section>
@@ -465,10 +504,114 @@ const CourseDetails = () => {
                   </div>
                 ))}
               </div>
+
+              {course.id === "agentes-ia" && (
+                <div className="mt-8 text-center">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="gap-2"
+                    onClick={() => {
+                      // Simulate PDF download
+                      window.open("#", "_blank");
+                    }}
+                  >
+                    <Download className="w-5 h-5" />
+                    Descargar Temario 2026
+                  </Button>
+                </div>
+              )}
             </Card>
           </div>
         </div>
       </section>
+
+      {/* Graduate Profile Section - Only for Agentes IA */}
+      {course.id === "agentes-ia" && course.graduateProfile && (
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-8 text-center">
+                Perfil de Egreso
+              </h2>
+              <Card className="p-8 bg-card/80 backdrop-blur-sm">
+                <ul className="space-y-4">
+                  {course.graduateProfile.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle2
+                        className={`w-5 h-5 ${colorScheme.text} flex-shrink-0 mt-0.5`}
+                      />
+                      <span className="text-lg">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Live Class Sample Section - Only for Agentes IA */}
+      {course.id === "agentes-ia" && (
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-4 text-center">
+                Vive la experiencia
+              </h2>
+              <p className="text-muted-foreground text-center mb-8">
+                Mira cómo son nuestras clases en vivo
+              </p>
+              <Card className="p-8 bg-card/80 backdrop-blur-sm">
+                <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center">
+                  <Video className="w-16 h-16 text-primary mb-4" />
+                  <p className="text-muted-foreground font-medium">
+                    Clase en Vivo: Agentes IA
+                  </p>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Platform Preview Section - Only for Agentes IA */}
+      {course.id === "agentes-ia" && (
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-4 text-center">
+                Tu Plataforma de Aprendizaje
+              </h2>
+              <p className="text-muted-foreground text-center mb-8">
+                Accede a tutoriales y recursos desde cualquier dispositivo
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card className="p-6 bg-card/80 backdrop-blur-sm">
+                  <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center mb-4">
+                    <Monitor className="w-12 h-12 text-primary mb-2" />
+                    <p className="text-sm text-muted-foreground">Tutoriales</p>
+                  </div>
+                  <h3 className="font-bold text-center">
+                    Videos y Materiales
+                  </h3>
+                </Card>
+                <Card className="p-6 bg-card/80 backdrop-blur-sm">
+                  <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center mb-4">
+                    <MenuIcon className="w-12 h-12 text-primary mb-2" />
+                    <p className="text-sm text-muted-foreground">
+                      Menú Lateral
+                    </p>
+                  </div>
+                  <h3 className="font-bold text-center">
+                    Navegación Intuitiva
+                  </h3>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Instructor Section */}
       <section className="py-20 bg-muted/30">
