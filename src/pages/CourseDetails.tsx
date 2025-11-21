@@ -444,12 +444,12 @@ const CourseDetails = () => {
 
             {course.id === "agentes-ia" ? (
               <Card className="p-8 bg-card/80 backdrop-blur-sm">
-                <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center mb-6">
-                  <Play className="w-16 h-16 text-primary mb-4" />
-                  <p className="text-muted-foreground font-medium">
-                    Video Introductorio Ingenio 360
-                  </p>
-                </div>
+                <iframe
+                  className="w-full aspect-video rounded-xl mb-6"
+                  src="https://www.youtube.com/embed/IjB76QCEDCE"
+                  title="Video Introductorio Ingenio 360"
+                  allowFullScreen
+                />
                 <h3 className="text-xl font-bold mb-4">Lo que aprenderás</h3>
                 <ul className="space-y-3">
                   {course.highlights.map((highlight, index) => (
@@ -512,8 +512,7 @@ const CourseDetails = () => {
                     variant="outline"
                     className="gap-2"
                     onClick={() => {
-                      // Simulate PDF download
-                      window.open("#", "_blank");
+                      window.open("/TEMARIO AGENTES IA - 2026.pdf", "_blank");
                     }}
                   >
                     <Download className="w-5 h-5" />
@@ -588,21 +587,23 @@ const CourseDetails = () => {
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <Card className="p-6 bg-card/80 backdrop-blur-sm">
-                  <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center mb-4">
-                    <Monitor className="w-12 h-12 text-primary mb-2" />
-                    <p className="text-sm text-muted-foreground">Tutoriales</p>
-                  </div>
+                  <iframe
+                    className="w-full aspect-video rounded-xl mb-4"
+                    src="https://www.youtube.com/embed/ivLTrqm7ulE"
+                    title="Clases Grabadas - Tutoriales"
+                    allowFullScreen
+                  />
                   <h3 className="font-bold text-center">
                     Videos y Materiales
                   </h3>
                 </Card>
                 <Card className="p-6 bg-card/80 backdrop-blur-sm">
-                  <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center mb-4">
-                    <MenuIcon className="w-12 h-12 text-primary mb-2" />
-                    <p className="text-sm text-muted-foreground">
-                      Menú Lateral
-                    </p>
-                  </div>
+                  <iframe
+                    className="w-full aspect-video rounded-xl mb-4"
+                    src="https://www.youtube.com/embed/DoTXjl2I0CI"
+                    title="Navegación de Plataforma"
+                    allowFullScreen
+                  />
                   <h3 className="font-bold text-center">
                     Navegación Intuitiva
                   </h3>
