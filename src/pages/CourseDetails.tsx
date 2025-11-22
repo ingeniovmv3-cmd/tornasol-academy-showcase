@@ -562,12 +562,12 @@ const CourseDetails = () => {
                 Mira cómo son nuestras clases en vivo
               </p>
               <Card className="p-8 bg-card/80 backdrop-blur-sm">
-                <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center">
-                  <Video className="w-16 h-16 text-primary mb-4" />
-                  <p className="text-muted-foreground font-medium">
-                    Clase en Vivo: Agentes IA
-                  </p>
-                </div>
+                <iframe
+                  className="w-full aspect-video rounded-xl"
+                  src="https://www.youtube.com/embed/qr2lTdKy3Hk"
+                  title="Clase en Vivo: Agentes IA"
+                  allowFullScreen
+                />
               </Card>
             </div>
           </div>
