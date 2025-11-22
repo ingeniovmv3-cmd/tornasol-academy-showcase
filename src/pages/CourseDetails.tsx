@@ -27,6 +27,7 @@ import {
   Menu as MenuIcon,
 } from "lucide-react";
 import { useEffect } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 // Course data (same as CoursesSection)
 const courseColorMap = {
@@ -342,6 +343,15 @@ const CourseDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
+  // Scroll reveal hooks for each section
+  const heroReveal = useScrollReveal(0.1);
+  const syllabusReveal = useScrollReveal(0.1);
+  const graduateReveal = useScrollReveal(0.1);
+  const liveClassReveal = useScrollReveal(0.1);
+  const platformReveal = useScrollReveal(0.1);
+  const instructorReveal = useScrollReveal(0.1);
+  const ctaReveal = useScrollReveal(0.1);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -385,7 +395,14 @@ const CourseDetails = () => {
           className={`absolute inset-0 bg-gradient-to-br ${colorScheme.gradient} opacity-50`}
         ></div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div 
+          ref={heroReveal.ref}
+          className={`container mx-auto px-4 relative z-10 transition-all duration-1000 ${
+            heroReveal.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <Button
             variant="ghost"
             onClick={() => navigate("/")}
@@ -484,7 +501,14 @@ const CourseDetails = () => {
       {/* Syllabus Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div 
+            ref={syllabusReveal.ref}
+            className={`max-w-4xl mx-auto transition-all duration-1000 delay-150 ${
+              syllabusReveal.isVisible
+                ? 'opacity-100 translate-x-0'
+                : 'opacity-0 -translate-x-10'
+            }`}
+          >
             <h2 className="text-3xl font-bold mb-8 text-center">
               Contenido del Curso
             </h2>
@@ -529,7 +553,14 @@ const CourseDetails = () => {
       {course.id === "agentes-ia" && course.graduateProfile && (
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div 
+              ref={graduateReveal.ref}
+              className={`max-w-4xl mx-auto transition-all duration-1000 delay-200 ${
+                graduateReveal.isVisible
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 translate-x-10'
+              }`}
+            >
               <h2 className="text-3xl font-bold mb-8 text-center">
                 Perfil de Egreso
               </h2>
@@ -554,7 +585,14 @@ const CourseDetails = () => {
       {course.id === "agentes-ia" && (
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div 
+              ref={liveClassReveal.ref}
+              className={`max-w-4xl mx-auto transition-all duration-1000 ${
+                liveClassReveal.isVisible
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-95'
+              }`}
+            >
               <h2 className="text-3xl font-bold mb-4 text-center">
                 Vive la experiencia
               </h2>
@@ -578,7 +616,14 @@ const CourseDetails = () => {
       {course.id === "agentes-ia" && (
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div 
+              ref={platformReveal.ref}
+              className={`max-w-4xl mx-auto transition-all duration-1000 delay-100 ${
+                platformReveal.isVisible
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-10'
+              }`}
+            >
               <h2 className="text-3xl font-bold mb-4 text-center">
                 Tu Plataforma de Aprendizaje
               </h2>
@@ -586,7 +631,13 @@ const CourseDetails = () => {
                 Accede a tutoriales y recursos desde cualquier dispositivo
               </p>
               <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6 bg-card/80 backdrop-blur-sm">
+                <Card 
+                  className={`p-6 bg-card/80 backdrop-blur-sm transition-all duration-700 delay-200 ${
+                    platformReveal.isVisible
+                      ? 'opacity-100 translate-x-0'
+                      : 'opacity-0 -translate-x-10'
+                  }`}
+                >
                   <iframe
                     className="w-full aspect-video rounded-xl mb-4"
                     src="https://www.youtube.com/embed/ivLTrqm7ulE"
@@ -597,7 +648,13 @@ const CourseDetails = () => {
                     Videos y Materiales
                   </h3>
                 </Card>
-                <Card className="p-6 bg-card/80 backdrop-blur-sm">
+                <Card 
+                  className={`p-6 bg-card/80 backdrop-blur-sm transition-all duration-700 delay-300 ${
+                    platformReveal.isVisible
+                      ? 'opacity-100 translate-x-0'
+                      : 'opacity-0 translate-x-10'
+                  }`}
+                >
                   <iframe
                     className="w-full aspect-video rounded-xl mb-4"
                     src="https://www.youtube.com/embed/DoTXjl2I0CI"
@@ -617,7 +674,14 @@ const CourseDetails = () => {
       {/* Instructor Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div 
+            ref={instructorReveal.ref}
+            className={`max-w-4xl mx-auto transition-all duration-1000 ${
+              instructorReveal.isVisible
+                ? 'opacity-100 scale-100'
+                : 'opacity-0 scale-90'
+            }`}
+          >
             <h2 className="text-3xl font-bold mb-8 text-center">
               Tu Instructor
             </h2>
@@ -651,7 +715,14 @@ const CourseDetails = () => {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div 
+            ref={ctaReveal.ref}
+            className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${
+              ctaReveal.isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-10'
+            }`}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               ¿Listo para transformar tu carrera?
             </h2>
