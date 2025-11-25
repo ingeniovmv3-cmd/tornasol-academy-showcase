@@ -463,7 +463,7 @@ const CourseDetails = () => {
               <Card className="p-8 bg-card/80 backdrop-blur-sm">
                 <iframe
                   className="w-full aspect-video rounded-xl mb-6"
-                  src="https://www.youtube.com/embed/IjB76QCEDCE"
+                  src="https://www.youtube.com/embed/3ebPPPs8s0I"
                   title="Video Introductorio Ingenio 360"
                   allowFullScreen
                 />
@@ -602,7 +602,7 @@ const CourseDetails = () => {
               <Card className="p-8 bg-card/80 backdrop-blur-sm">
                 <iframe
                   className="w-full aspect-video rounded-xl"
-                  src="https://www.youtube.com/embed/qr2lTdKy3Hk"
+                  src="https://www.youtube.com/embed/oxutkYIfsfM"
                   title="Clase en Vivo: Agentes IA"
                   allowFullScreen
                 />
@@ -630,7 +630,7 @@ const CourseDetails = () => {
               <p className="text-muted-foreground text-center mb-8">
                 Accede a tutoriales y recursos desde cualquier dispositivo
               </p>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-3 gap-6">
                 <Card 
                   className={`p-6 bg-card/80 backdrop-blur-sm transition-all duration-700 delay-200 ${
                     platformReveal.isVisible
@@ -640,7 +640,7 @@ const CourseDetails = () => {
                 >
                   <iframe
                     className="w-full aspect-video rounded-xl mb-4"
-                    src="https://www.youtube.com/embed/ivLTrqm7ulE"
+                    src="https://www.youtube.com/embed/fX56062m28Y"
                     title="Clases Grabadas - Tutoriales"
                     allowFullScreen
                   />
@@ -657,12 +657,29 @@ const CourseDetails = () => {
                 >
                   <iframe
                     className="w-full aspect-video rounded-xl mb-4"
-                    src="https://www.youtube.com/embed/DoTXjl2I0CI"
+                    src="https://www.youtube.com/embed/_WAGJNF-YtM"
                     title="Navegación de Plataforma"
                     allowFullScreen
                   />
                   <h3 className="font-bold text-center">
                     Navegación Intuitiva
+                  </h3>
+                </Card>
+                <Card 
+                  className={`p-6 bg-card/80 backdrop-blur-sm transition-all duration-700 delay-400 ${
+                    platformReveal.isVisible
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-10'
+                  }`}
+                >
+                  <iframe
+                    className="w-full aspect-video rounded-xl mb-4"
+                    src="https://www.youtube.com/embed/rAlUfDPgB14"
+                    title="Curso Agente IA"
+                    allowFullScreen
+                  />
+                  <h3 className="font-bold text-center">
+                    Curso Completo
                   </h3>
                 </Card>
               </div>
