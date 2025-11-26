@@ -25,6 +25,8 @@ import {
   Video,
   Monitor,
   Menu as MenuIcon,
+  Coffee,
+  BarChart,
 } from "lucide-react";
 import { useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -84,6 +86,7 @@ const courses = [
       experience: "10+ años",
     },
     color: "primary",
+    introVideoUrl: "https://www.youtube.com/embed/vgr3Sl88Hm8",
   },
   {
     id: "ciberseguridad",
@@ -114,6 +117,7 @@ const courses = [
       experience: "12+ años",
     },
     color: "accent",
+    introVideoUrl: "https://www.youtube.com/embed/DNMLN5qEswc",
   },
   {
     id: "inteligencia-artificial",
@@ -276,6 +280,7 @@ const courses = [
       experience: "5+ años",
     },
     color: "primary",
+    introVideoUrl: "https://www.youtube.com/embed/3ebPPPs8s0I",
   },
   {
     id: "python-data-science",
@@ -306,6 +311,7 @@ const courses = [
       experience: "9+ años",
     },
     color: "accent",
+    introVideoUrl: "https://www.youtube.com/embed/dhUttP9KPyo",
   },
   {
     id: "azure-cloud-engineer",
@@ -336,6 +342,131 @@ const courses = [
       experience: "11+ años",
     },
     color: "secondary",
+    introVideoUrl: "https://www.youtube.com/embed/anSrZhqtBtI",
+  },
+  {
+    id: "ciencia-datos",
+    icon: Database,
+    title: "Ciencia de Datos",
+    duration: "5 meses",
+    modality: "Virtual",
+    certification: "Profesional",
+    description:
+      "Conviértete en científico de datos. Aprende estadística, machine learning y visualización de datos para extraer insights valiosos de grandes volúmenes de información.",
+    highlights: [
+      "Estadística aplicada",
+      "Machine Learning avanzado",
+      "Visualización de datos",
+      "Big Data y Analytics",
+    ],
+    syllabus: [
+      "Fundamentos de ciencia de datos",
+      "Estadística y probabilidad",
+      "Machine Learning",
+      "Visualización avanzada",
+      "Big Data tools",
+      "Proyectos prácticos",
+    ],
+    instructor: {
+      name: "Data Science Expert",
+      specialty: "Data Analytics",
+      experience: "8+ años",
+    },
+    color: "primary",
+    introVideoUrl: "https://www.youtube.com/embed/gLQdzf9Z-OA",
+  },
+  {
+    id: "full-stack",
+    icon: Code,
+    title: "Full Stack Developer",
+    duration: "6 meses",
+    modality: "A tu ritmo",
+    certification: "Profesional",
+    description:
+      "Domina el desarrollo web completo. Aprende frontend y backend, bases de datos y despliegue para crear aplicaciones web modernas y escalables.",
+    highlights: [
+      "Frontend con React",
+      "Backend con Node.js",
+      "Bases de datos SQL y NoSQL",
+      "Despliegue en la nube",
+    ],
+    syllabus: [
+      "HTML, CSS y JavaScript",
+      "React y frameworks modernos",
+      "Node.js y Express",
+      "Bases de datos",
+      "APIs RESTful",
+      "Despliegue y DevOps",
+    ],
+    instructor: {
+      name: "Full Stack Engineer",
+      specialty: "Web Development",
+      experience: "10+ años",
+    },
+    color: "accent",
+    introVideoUrl: "https://www.youtube.com/embed/QKUrp4AYJeg",
+  },
+  {
+    id: "java-developer",
+    icon: Coffee,
+    title: "Java Developer",
+    duration: "5 meses",
+    modality: "Clases en vivo",
+    certification: "Profesional",
+    description:
+      "Domina Java y Spring Boot. Aprende programación orientada a objetos, desarrollo backend enterprise y arquitectura de microservicios.",
+    highlights: [
+      "Java core y POO",
+      "Spring Boot framework",
+      "Microservicios",
+      "Bases de datos relacionales",
+    ],
+    syllabus: [
+      "Fundamentos de Java",
+      "Programación orientada a objetos",
+      "Spring Framework",
+      "Spring Boot",
+      "Arquitectura de microservicios",
+      "Testing y calidad de código",
+    ],
+    instructor: {
+      name: "Senior Java Architect",
+      specialty: "Enterprise Development",
+      experience: "12+ años",
+    },
+    color: "secondary",
+    introVideoUrl: "https://www.youtube.com/embed/Djkdat9b9AQ",
+  },
+  {
+    id: "power-bi",
+    icon: BarChart,
+    title: "Power BI Specialist",
+    duration: "3 meses",
+    modality: "Virtual",
+    certification: "Microsoft Certified",
+    description:
+      "Conviértete en experto de Business Intelligence. Aprende a crear dashboards interactivos, analizar datos y generar insights que impulsen decisiones de negocio.",
+    highlights: [
+      "Visualización de datos",
+      "DAX y Power Query",
+      "Dashboards interactivos",
+      "Integración de datos",
+    ],
+    syllabus: [
+      "Fundamentos de Power BI",
+      "Power Query y ETL",
+      "Modelado de datos",
+      "Lenguaje DAX",
+      "Visualizaciones avanzadas",
+      "Publicación y compartir",
+    ],
+    instructor: {
+      name: "BI Analytics Specialist",
+      specialty: "Business Intelligence",
+      experience: "9+ años",
+    },
+    color: "primary",
+    introVideoUrl: "https://www.youtube.com/embed/QbD9pwY7WZ0",
   },
 ];
 
@@ -459,13 +590,14 @@ const CourseDetails = () => {
               </Button>
             </div>
 
-            {course.id === "agentes-ia" ? (
+            {course.introVideoUrl ? (
               <Card className="p-8 bg-card/80 backdrop-blur-sm">
                 <iframe
-                  className="w-full aspect-video rounded-xl mb-6"
-                  src="https://www.youtube.com/embed/3ebPPPs8s0I"
-                  title="Video Introductorio Ingenio 360"
+                  className="w-full aspect-video rounded-xl shadow-2xl mb-6"
+                  src={course.introVideoUrl}
+                  title={`Video Introductorio - ${course.title}`}
                   allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 />
                 <h3 className="text-xl font-bold mb-4">Lo que aprenderás</h3>
                 <ul className="space-y-3">
@@ -481,6 +613,11 @@ const CourseDetails = () => {
               </Card>
             ) : (
               <Card className="p-8 bg-card/80 backdrop-blur-sm">
+                <div
+                  className={`w-full aspect-video rounded-xl ${colorScheme.gradient} flex items-center justify-center mb-6`}
+                >
+                  <Icon className={`w-32 h-32 ${colorScheme.text} opacity-50`} />
+                </div>
                 <h3 className="text-xl font-bold mb-4">Lo que aprenderás</h3>
                 <ul className="space-y-3">
                   {course.highlights.map((highlight, index) => (
