@@ -18,6 +18,8 @@ import {
   Bot,
   Code,
   CloudCog,
+  Coffee,
+  BarChart,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -215,6 +217,74 @@ const CoursesSection = () => {
         "Preparación certificación Azure",
       ],
       color: "secondary",
+    },
+    {
+      id: "ciencia-datos",
+      icon: Database,
+      title: "Ciencia de Datos",
+      duration: "5 meses",
+      modality: "Virtual",
+      certification: "Profesional",
+      description:
+        "Conviértete en científico de datos. Aprende estadística, machine learning y visualización de datos para extraer insights valiosos.",
+      highlights: [
+        "Estadística aplicada",
+        "Machine Learning avanzado",
+        "Visualización de datos",
+        "Big Data y Analytics",
+      ],
+      color: "primary",
+    },
+    {
+      id: "full-stack",
+      icon: Code,
+      title: "Full Stack Developer",
+      duration: "6 meses",
+      modality: "A tu ritmo",
+      certification: "Profesional",
+      description:
+        "Domina el desarrollo web completo. Aprende frontend y backend, bases de datos y despliegue para crear aplicaciones web modernas.",
+      highlights: [
+        "Frontend con React",
+        "Backend con Node.js",
+        "Bases de datos SQL y NoSQL",
+        "Despliegue en la nube",
+      ],
+      color: "accent",
+    },
+    {
+      id: "java-developer",
+      icon: Coffee,
+      title: "Java Developer",
+      duration: "5 meses",
+      modality: "Clases en vivo",
+      certification: "Profesional",
+      description:
+        "Domina Java y Spring Boot. Aprende programación orientada a objetos, desarrollo backend enterprise y arquitectura de microservicios.",
+      highlights: [
+        "Java core y POO",
+        "Spring Boot framework",
+        "Microservicios",
+        "Bases de datos relacionales",
+      ],
+      color: "secondary",
+    },
+    {
+      id: "power-bi",
+      icon: BarChart,
+      title: "Power BI Specialist",
+      duration: "3 meses",
+      modality: "Virtual",
+      certification: "Microsoft Certified",
+      description:
+        "Conviértete en experto de Business Intelligence. Aprende a crear dashboards interactivos y generar insights que impulsen decisiones de negocio.",
+      highlights: [
+        "Visualización de datos",
+        "DAX y Power Query",
+        "Dashboards interactivos",
+        "Integración de datos",
+      ],
+      color: "primary",
     },
   ];
 
