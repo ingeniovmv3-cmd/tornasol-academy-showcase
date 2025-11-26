@@ -9,10 +9,8 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
-    // If not on homepage, navigate to homepage first
     if (location.pathname !== "/") {
       navigate("/");
-      // Wait for navigation, then scroll
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
@@ -20,7 +18,6 @@ const Navbar = () => {
         }
       }, 100);
     } else {
-      // Already on homepage, just scroll
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -30,11 +27,10 @@ const Navbar = () => {
   };
 
   return (
-    // --- (Esto se queda igual) ---
-    <nav className="fixed top-0 md:top-4 left-0 right-0 z-50 lg:px-16">
+    <nav className="fixed top-0 md:top-4 left-0 right-0 z-[9999] lg:px-16">
       <div
         className="
-         mx-auto px-4 
+        mx-auto px-4 
         bg-background/80 backdrop-blur-lg 
         rounded-none border-0 border-b border-border shadow-none 
         md:rounded-full md:border md:shadow-lg md:border-b-1
@@ -53,7 +49,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation - Solo se muestra en pantallas xl y mayores */}
+          {/* Desktop Navigation */}
           <div className="hidden xl:flex items-center gap-6">
             <button
               onClick={() => scrollToSection("hero")}
@@ -120,10 +116,9 @@ const Navbar = () => {
           {/* Desktop Login Button */}
           <div className="hidden xl:block">
             <Button
-              asChild // 1. Añadimos asChild
+              asChild
               className="bg-foreground text-background hover:bg-foreground/90 transition-all rounded-full"
             >
-              {/* 2. Reemplazamos onClick con un <a> tag */}
               <a
                 href="https://www.academia-i360.com"
                 target="_blank"
@@ -133,9 +128,8 @@ const Navbar = () => {
               </a>
             </Button>
           </div>
-          {/* --- FIN DE MODIFICACIÓN --- */}
 
-          {/* Mobile Menu Button - Se muestra en pantallas menores a xl */}
+          {/* Mobile Menu Button */}
           <button className="xl:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
             <Menu className="w-6 h-6" />
           </button>
@@ -206,12 +200,10 @@ const Navbar = () => {
                 Contacto
               </button>
 
-              {/* --- INICIO DE MODIFICACIÓN (Botón Móvil) --- */}
               <Button
-                asChild // 1. Añadimos asChild
+                asChild
                 className="bg-foreground text-background hover:bg-foreground/90 transition-all w-full rounded-full"
               >
-                {/* 2. Reemplazamos onClick con un <a> tag */}
                 <a
                   href="https://www.academia-i360.com"
                   target="_blank"
@@ -220,7 +212,6 @@ const Navbar = () => {
                   Iniciar Sesión
                 </a>
               </Button>
-              {/* --- FIN DE MODIFICACIÓN --- */}
             </div>
           </div>
         )}

@@ -31,7 +31,6 @@ import {
 import { useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-// Course data (same as CoursesSection)
 const courseColorMap = {
   primary: {
     gradient: "from-primary/20 to-primary-glow/20",
@@ -87,6 +86,7 @@ const courses = [
     },
     color: "primary",
     introVideoUrl: "https://www.youtube.com/embed/vgr3Sl88Hm8",
+    syllabusPdf: "#",
   },
   {
     id: "ciberseguridad",
@@ -118,6 +118,7 @@ const courses = [
     },
     color: "accent",
     introVideoUrl: "https://www.youtube.com/embed/DNMLN5qEswc",
+    syllabusPdf: "#",
   },
   {
     id: "inteligencia-artificial",
@@ -148,6 +149,7 @@ const courses = [
       experience: "8+ años",
     },
     color: "secondary",
+    syllabusPdf: "#",
   },
   {
     id: "sql-architect",
@@ -178,6 +180,7 @@ const courses = [
       experience: "15+ años",
     },
     color: "primary",
+    syllabusPdf: "#",
   },
   {
     id: "microsoft-365-specialist",
@@ -208,6 +211,7 @@ const courses = [
       experience: "10+ años",
     },
     color: "accent",
+    syllabusPdf: "#",
   },
   {
     id: "odoo-developer",
@@ -238,6 +242,7 @@ const courses = [
       experience: "7+ años",
     },
     color: "secondary",
+    syllabusPdf: "#",
   },
   {
     id: "agentes-ia",
@@ -281,6 +286,7 @@ const courses = [
     },
     color: "primary",
     introVideoUrl: "https://www.youtube.com/embed/3ebPPPs8s0I",
+    syllabusPdf: "/pdf/TEMARIO AGENTES IA - 2026.pdf",
   },
   {
     id: "python-data-science",
@@ -312,6 +318,7 @@ const courses = [
     },
     color: "accent",
     introVideoUrl: "https://www.youtube.com/embed/dhUttP9KPyo",
+    syllabusPdf: "/pdf/TEMARIO PYTHON - 2026.pdf",
   },
   {
     id: "azure-cloud-engineer",
@@ -343,6 +350,7 @@ const courses = [
     },
     color: "secondary",
     introVideoUrl: "https://www.youtube.com/embed/anSrZhqtBtI",
+    syllabusPdf: "#",
   },
   {
     id: "ciencia-datos",
@@ -374,6 +382,7 @@ const courses = [
     },
     color: "primary",
     introVideoUrl: "https://www.youtube.com/embed/gLQdzf9Z-OA",
+    syllabusPdf: "/pdf/TEMARIO CIENCIA DE DATOS - 2026.pdf",
   },
   {
     id: "full-stack",
@@ -405,6 +414,7 @@ const courses = [
     },
     color: "accent",
     introVideoUrl: "https://www.youtube.com/embed/QKUrp4AYJeg",
+    syllabusPdf: "/pdf/TEMARIO FULL STACK - 2026.pdf",
   },
   {
     id: "java-developer",
@@ -436,6 +446,7 @@ const courses = [
     },
     color: "secondary",
     introVideoUrl: "https://www.youtube.com/embed/Djkdat9b9AQ",
+    syllabusPdf: "#",
   },
   {
     id: "power-bi",
@@ -467,6 +478,7 @@ const courses = [
     },
     color: "primary",
     introVideoUrl: "https://www.youtube.com/embed/QbD9pwY7WZ0",
+    syllabusPdf: "/pdf/TEMARIO POWER BI - 2026.pdf",
   },
 ];
 
@@ -474,7 +486,6 @@ const CourseDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  // Scroll reveal hooks for each section
   const heroReveal = useScrollReveal(0.1);
   const syllabusReveal = useScrollReveal(0.1);
   const graduateReveal = useScrollReveal(0.1);
@@ -526,12 +537,12 @@ const CourseDetails = () => {
           className={`absolute inset-0 bg-gradient-to-br ${colorScheme.gradient} opacity-50`}
         ></div>
 
-        <div 
+        <div
           ref={heroReveal.ref}
           className={`container mx-auto px-4 relative z-10 transition-all duration-1000 ${
-            heroReveal.isVisible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-10'
+            heroReveal.isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
           }`}
         >
           <Button
@@ -616,7 +627,9 @@ const CourseDetails = () => {
                 <div
                   className={`w-full aspect-video rounded-xl ${colorScheme.gradient} flex items-center justify-center mb-6`}
                 >
-                  <Icon className={`w-32 h-32 ${colorScheme.text} opacity-50`} />
+                  <Icon
+                    className={`w-32 h-32 ${colorScheme.text} opacity-50`}
+                  />
                 </div>
                 <h3 className="text-xl font-bold mb-4">Lo que aprenderás</h3>
                 <ul className="space-y-3">
@@ -635,15 +648,14 @@ const CourseDetails = () => {
         </div>
       </section>
 
-      {/* Syllabus Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div 
+          <div
             ref={syllabusReveal.ref}
             className={`max-w-4xl mx-auto transition-all duration-1000 delay-150 ${
               syllabusReveal.isVisible
-                ? 'opacity-100 translate-x-0'
-                : 'opacity-0 -translate-x-10'
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-10"
             }`}
           >
             <h2 className="text-3xl font-bold mb-8 text-center">
@@ -666,14 +678,14 @@ const CourseDetails = () => {
                 ))}
               </div>
 
-              {course.id === "agentes-ia" && (
+              {course.syllabusPdf && (
                 <div className="mt-8 text-center">
                   <Button
                     size="lg"
                     variant="outline"
                     className="gap-2"
                     onClick={() => {
-                      window.open("/TEMARIO AGENTES IA - 2026.pdf", "_blank");
+                      window.open(course.syllabusPdf, "_blank");
                     }}
                   >
                     <Download className="w-5 h-5" />
@@ -686,16 +698,15 @@ const CourseDetails = () => {
         </div>
       </section>
 
-      {/* Graduate Profile Section - Only for Agentes IA */}
       {course.id === "agentes-ia" && course.graduateProfile && (
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div 
+            <div
               ref={graduateReveal.ref}
               className={`max-w-4xl mx-auto transition-all duration-1000 delay-200 ${
                 graduateReveal.isVisible
-                  ? 'opacity-100 translate-x-0'
-                  : 'opacity-0 translate-x-10'
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
               }`}
             >
               <h2 className="text-3xl font-bold mb-8 text-center">
@@ -718,16 +729,15 @@ const CourseDetails = () => {
         </section>
       )}
 
-      {/* Live Class Sample Section - Only for Agentes IA */}
       {course.id === "agentes-ia" && (
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div 
+            <div
               ref={liveClassReveal.ref}
               className={`max-w-4xl mx-auto transition-all duration-1000 ${
                 liveClassReveal.isVisible
-                  ? 'opacity-100 scale-100'
-                  : 'opacity-0 scale-95'
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-95"
               }`}
             >
               <h2 className="text-3xl font-bold mb-4 text-center">
@@ -749,16 +759,15 @@ const CourseDetails = () => {
         </section>
       )}
 
-      {/* Platform Preview Section - Only for Agentes IA */}
       {course.id === "agentes-ia" && (
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div 
+            <div
               ref={platformReveal.ref}
               className={`max-w-4xl mx-auto transition-all duration-1000 delay-100 ${
                 platformReveal.isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-10'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
               }`}
             >
               <h2 className="text-3xl font-bold mb-4 text-center">
@@ -767,55 +776,23 @@ const CourseDetails = () => {
               <p className="text-muted-foreground text-center mb-8">
                 Accede a tutoriales y recursos desde cualquier dispositivo
               </p>
-              <div className="grid md:grid-cols-3 gap-6">
-                <Card 
-                  className={`p-6 bg-card/80 backdrop-blur-sm transition-all duration-700 delay-200 ${
+
+              <div className="flex justify-center">
+                <Card
+                  className={`w-full max-w-2xl p-6 bg-card/80 backdrop-blur-sm transition-all duration-700 delay-200 ${
                     platformReveal.isVisible
-                      ? 'opacity-100 translate-x-0'
-                      : 'opacity-0 -translate-x-10'
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
                   }`}
                 >
                   <iframe
-                    className="w-full aspect-video rounded-xl mb-4"
-                    src="https://www.youtube.com/embed/fX56062m28Y"
-                    title="Clases Grabadas - Tutoriales"
-                    allowFullScreen
-                  />
-                  <h3 className="font-bold text-center">
-                    Videos y Materiales
-                  </h3>
-                </Card>
-                <Card 
-                  className={`p-6 bg-card/80 backdrop-blur-sm transition-all duration-700 delay-300 ${
-                    platformReveal.isVisible
-                      ? 'opacity-100 translate-x-0'
-                      : 'opacity-0 translate-x-10'
-                  }`}
-                >
-                  <iframe
-                    className="w-full aspect-video rounded-xl mb-4"
-                    src="https://www.youtube.com/embed/_WAGJNF-YtM"
-                    title="Navegación de Plataforma"
-                    allowFullScreen
-                  />
-                  <h3 className="font-bold text-center">
-                    Navegación Intuitiva
-                  </h3>
-                </Card>
-                <Card 
-                  className={`p-6 bg-card/80 backdrop-blur-sm transition-all duration-700 delay-400 ${
-                    platformReveal.isVisible
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-10'
-                  }`}
-                >
-                  <iframe
-                    className="w-full aspect-video rounded-xl mb-4"
+                    className="w-full aspect-video rounded-xl mb-4 shadow-lg"
                     src="https://www.youtube.com/embed/rAlUfDPgB14"
                     title="Curso Agente IA"
                     allowFullScreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   />
-                  <h3 className="font-bold text-center">
+                  <h3 className="font-bold text-center text-xl">
                     Curso Completo
                   </h3>
                 </Card>
@@ -825,15 +802,14 @@ const CourseDetails = () => {
         </section>
       )}
 
-      {/* Instructor Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div 
+          <div
             ref={instructorReveal.ref}
             className={`max-w-4xl mx-auto transition-all duration-1000 ${
               instructorReveal.isVisible
-                ? 'opacity-100 scale-100'
-                : 'opacity-0 scale-90'
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-90"
             }`}
           >
             <h2 className="text-3xl font-bold mb-8 text-center">
@@ -866,15 +842,14 @@ const CourseDetails = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div 
+          <div
             ref={ctaReveal.ref}
             className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${
               ctaReveal.isVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-10'
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
