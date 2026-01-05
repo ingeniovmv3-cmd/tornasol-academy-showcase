@@ -120,7 +120,7 @@ const Navbar = () => {
               className="bg-foreground text-background hover:bg-foreground/90 transition-all rounded-full"
             >
               <a
-                href="https://www.academia-i360.com"
+                href="https://ezequielaguiacom.sabionet.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -205,7 +205,7 @@ const Navbar = () => {
                 className="bg-foreground text-background hover:bg-foreground/90 transition-all w-full rounded-full"
               >
                 <a
-                  href="https://www.academia-i360.com"
+                  href="https://ezequielaguiacom.sabionet.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
